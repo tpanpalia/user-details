@@ -1,3 +1,9 @@
+/*
+    Component fetches the user data from API.
+    For Each user 'UserDetails' component is rendered to display user details.
+    When the screen size reduces to 480, the list of users is populated in dropdown
+*/
+
 import React, { useState, useEffect } from 'react';
 import '../assets/Users.css';
 import UserDetails from './UserDetails';
@@ -9,6 +15,7 @@ const Users = () => {
     const [userName, setUserName] = useState([]);
     const [isSmalScreen, setIsSmallScreen] = useState(false);
 
+    //hook to fetch the user data from API and also to populate the dropdown options (when screen size is less than 480)
     useEffect(() => {
         fetch("http://www.mocky.io/v2/5e55294d31000029b7eb36fb")
         .then((response) => response.json())
@@ -28,10 +35,12 @@ const Users = () => {
         })
     }, []);
 
+    //Function to chech the screen size and set the isSmallScreen flag
     const onWindowResize = () => {
         setIsSmallScreen(window.innerWidth < 480);
     }
 
+    //Hook to capture the resize event
     useEffect(() => {
         window.addEventListener('resize', onWindowResize);
 
@@ -40,6 +49,7 @@ const Users = () => {
         }
     }, []);
 
+    //Function to handle the onClick event for div to display the selected user details
     function onUserClick(userDetails) {
         usersList.forEach((x) => {
             if(x.name === userDetails.name){
@@ -48,12 +58,14 @@ const Users = () => {
         });
     }
 
+    //Function to change the background color for the selected user
     function getHighlightColor(userDetails){
         if(userSelected === userDetails){
             return "#c9daf8"
         }
     }
 
+    //Function to handle dropdown onChange event (when screen size is less than 480)
     const handleUserChange = (evt, option) => {
         usersList.forEach((x) => {
             if(x.name === option.text){
@@ -62,6 +74,7 @@ const Users = () => {
         });
     }
 
+    //returning JSX element
     return(
         <>
             {isSmalScreen ? (
