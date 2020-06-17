@@ -1,0 +1,60 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5%;
+  }
+  
+  .flex-container-item-1 {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 15%;
+    text-align: center;
+  }
+  
+  .flex-container-item-1 > div {
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .flex-container-item-2 {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .flex-container-item-2 > div {
+    padding: 3%;
+  }
+  
+  .userSelected {
+    background-color: #c9daf8;
+  }
+  
+  .flex-container-item-2 .ms-TextField-field {
+    background-color: #f3f3f3;
+  }
+  
+  .flex-container-item-2 > div > button {
+    width: 100%;
+    border: 1px solid black;
+  }
+  
+  .flex-container-small {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5%;
+  }
+  
+  .flex-container-small > div {
+    width: 40%;
+    margin-bottom: 2%;
+  }
