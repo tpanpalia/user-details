@@ -19,7 +19,7 @@ const Users = () => {
   //hook to fetch the user data from API and also to populate the dropdown options (when screen size is less than 480)
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://www.mocky.io/v2/5e55294d31000029b7eb36fb")
+    fetch("https://www.mocky.io/v2/5e55294d31000029b7eb36fb")
       .then((response) => response.json())
       .then((data) => {
         data.sort((a, b) => (a.name > b.name ? 1 : -1));
