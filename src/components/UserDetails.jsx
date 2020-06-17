@@ -1,14 +1,12 @@
 /*
     This component will be rendered for each user.
     This consists of TextFields for name, emailId, employeeId, role, domain
-    USer can submit the editted data (shows alert on submitting the data)
+    USer can submit the edited data (shows alert on submitting the data)
 */
 import React, { useState } from 'react';
 import {
     TextField,
-    PrimaryButton,
-    SpinnerSize,
-    Spinner
+    PrimaryButton
 } from "office-ui-fabric-react";
 
 const UserDetails = (props) => {
@@ -16,13 +14,14 @@ const UserDetails = (props) => {
 
     //Function to handle the onchange event for TextFields
     function handleTextFieldChange(item, newValue){
-        let userData = { ...userInfo };
+        let userData = { ...props.userData };
         userData[item] = newValue;
         setUserInfo(userData);
     }
 
     //Function to be called on Submit button click
     const onSubmitClick = () => {
+        console.log(userInfo)
         alert("Form Data Submitted")
     };
 
